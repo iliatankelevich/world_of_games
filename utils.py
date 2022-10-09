@@ -1,4 +1,4 @@
-from typing import TypeVar
+from typing import TypeVar, List
 from collections.abc import Callable
 
 T = TypeVar('T')
@@ -27,3 +27,13 @@ def get_value_from_user(description: str, output_type: runtime_type, validator: 
             return input_casted
 
         print("not valid input")
+
+
+def is_list_equal(list1: List[int], list2: List[int]) -> bool:
+    for element in list1:
+        if element not in list2:
+            return False
+    for element in list2:
+        if element not in list1:
+            return False
+    return True
