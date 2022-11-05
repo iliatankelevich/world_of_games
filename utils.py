@@ -1,5 +1,9 @@
 from typing import TypeVar, List
 from collections.abc import Callable
+import os
+
+SCORES_FILE_NAME = "scores.txt"
+BAD_RETURN_CODE = 400
 
 T = TypeVar('T')
 runtime_type = T.__name__
@@ -37,3 +41,7 @@ def is_list_equal(list1: List[int], list2: List[int]) -> bool:
         if element not in list1:
             return False
     return True
+
+
+def screen_clear():
+    os.system("cls")

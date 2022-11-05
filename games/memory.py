@@ -1,8 +1,7 @@
 import time
-import os
 from random import randint
 
-from utils import get_value_from_user, is_list_equal
+from utils import get_value_from_user, is_list_equal, screen_clear
 from .game_base import Game
 
 
@@ -28,6 +27,6 @@ class MemoryGame(Game):
         generated_sequence = self.generate_sequence()
         print(generated_sequence)
         time.sleep(7)
-        os.system("cls")
+        screen_clear()
         sequence_from_user = self.get_list_from_user()
         return is_list_equal(generated_sequence, sequence_from_user)

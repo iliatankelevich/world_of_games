@@ -2,6 +2,7 @@ from games.currency import CurrencyRouletteGame
 from games.memory import MemoryGame
 from games.guess import GuessGame
 from utils import get_value_from_user
+from scores.scores import add_score
 
 
 class Live:
@@ -26,6 +27,7 @@ class Live:
             difficulty = get_value_from_user('please choose the level of difficulty from 1 to 5', int, lambda index: 1 <= index <= 5)
             game = self.games[game_index]
             initiated_game = game(difficulty)
-            initiated_game.play()
+            if initiated_game.play():
+                add_score(difficulty)
 
         print('goodbye')
